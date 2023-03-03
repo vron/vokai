@@ -29,14 +29,15 @@ impl rai::Ai for Ai {
         };
     }
 
-    impl Ai {
-        fn rnd<'a>(&self, mut e: Box<dyn rai::AiEnv + 'a>) -> f32 {
-            let s1 = e.get_memory(0.0);
-            let s2 = s1 + 11.34;
-            let s3 = s2.rem_euclid(1.0);
-            e.set_memory(0.0, s3);
-            s3
-        }
-    }
+}
 
+
+impl Ai {
+    fn rnd<'a>(&self, mut e: Box<dyn rai::AiEnv + 'a>) -> f32 {
+        let s1 = e.get_memory(0.0);
+        let s2 = s1 + 11.34;
+        let s3 = s2.rem_euclid(1.0);
+        e.set_memory(0.0, s3);
+        s3
+    }
 }
