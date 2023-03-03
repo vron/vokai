@@ -5,6 +5,8 @@ pub struct Ai();
 
 impl rai::Ai for Ai {
     fn run<'a>(&self, e: Box<dyn rai::AiEnv + 'a>) -> rai::Action {
+        return Nothing;
+        
         if e.no_resources(0.0, 0.0) > 0.0 {
             return Create;
         }
