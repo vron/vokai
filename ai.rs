@@ -24,7 +24,7 @@ impl rai::Ai for Ai {
             (-1.0, 1.0, MoveNW)
         ];
         for (dx, dy, a) in cases.into_iter() {
-            if e.no_resources(dx, dy) > 0.0. {
+            if e.no_resources(dx, dy) > 0.0 {
             }   
         }
         
