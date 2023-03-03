@@ -25,6 +25,7 @@ impl rai::Ai for Ai {
         ];
         for (dx, dy, a) in cases.into_iter() {
             if e.no_resources(dx, dy) > 0.0 {
+                return a;
             }   
         }
         
