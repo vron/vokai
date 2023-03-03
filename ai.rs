@@ -13,6 +13,22 @@ impl rai::Ai for Ai {
             return Nothing;
         }
         
+        let cases = vec![
+            (0.0, 1.0, MoveN),
+            (1.0, 1.0, MoveNE),
+            (1.0, 0.0, MoveE),
+            (1.0, -1.0, MoveSE),
+            (0.0, -1.0, MoveS),
+            (-1.0, -1.0, MoveSW),
+            (-1.0, 0.0, MoveW),
+            (-1.0, 1.0, MoveNW)
+        ];
+        for (dx, dy, a) in cases.into_iter() {
+            if e.no_resources(dx, dy) > 0.0. {
+            }   
+        }
+        
+        
         let r = self.rnd(e);
         let r: u8 = (r*8.0) as u8;
         return match r % 8 {
