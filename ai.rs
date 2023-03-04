@@ -6,7 +6,7 @@ pub struct Ai();
 impl rai::Ai for Ai {
     fn run<'a>(&self, e: Box<dyn rai::AiEnv + 'a>) -> rai::Action {
         let p = { self.rnd(e)  };
-        let r: u8 = (e*8.0) as u8;
+        let r: u8 = (p*8.0) as u8;
         
         if e.no_resources(0.0, 0.0) > 0.0 {
             return Create;
