@@ -5,8 +5,6 @@ pub struct Ai();
 
 impl rai::Ai for Ai {
     fn run<'a>(&self, e: Box<dyn rai::AiEnv + 'a>) -> rai::Action {
-        let p = { self.rnd(e)  };
-        let r: u8 = (p*8.0) as u8;
         
         if e.no_resources(0.0, 0.0) > 0.0 {
             return Create;
@@ -26,12 +24,15 @@ impl rai::Ai for Ai {
             (-1.0, 0.0, MoveW),
             (-1.0, 1.0, MoveNW)
         ];
+        let p = e.get_memory(0.0);
         for (dx, dy, a) in cases.into_iter() {
             if e.no_resources(dx, dy) > 0.0 && e.no_enemies(dx, dy) < 1.0 && e.no_friends(dx, dy) < 1.0 && p < 0.5 {
                 return a;
             }   
         }
         
+        let p = { self.rnd(e)  };
+        let r: u8 = (p*8.0) as u8;
         return match r % 8 {
             0 => MoveN,
             1 => MoveNE,
