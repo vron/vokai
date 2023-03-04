@@ -24,14 +24,14 @@ impl rai::Ai for Ai {
             (-1.0, 1.0, MoveNW)
         ];
         for (dx, dy, a) in cases.into_iter() {
-            let p = { self.rnd(e)  };
+            let p = { self.rnd(&mut e)  };
             if e.no_resources(dx, dy) > 0.0 && e.no_enemies(dx, dy) < 1.0 && e.no_friends(dx, dy) < 1.0 && p < 0.5 {
                 return a;
             }   
         }
         
         
-        let r = self.rnd(e);
+        let r = self.rnd(&mut e);
         let r: u8 = (r*8.0) as u8;
         return match r % 8 {
             0 => MoveN,
